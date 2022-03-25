@@ -1,12 +1,10 @@
-import React from 'react'
 import axios from 'axios'
 import Button from 'react-bootstrap/Button'
-import FormControl from 'react-bootstrap/FormControl'
-import InputGroup from 'react-bootstrap/InputGroup'
-import Form from 'react-bootstrap/Form'
-import Card from 'react-bootstrap/Card'
+import React from 'react'
 import Spinner from 'react-bootstrap/Spinner'
 
+import ArtistCard from './components/ArtistCard'
+import InputSearch from './components/InputSearch'
 import spotifyLogo from './assets/Spotify_Logo.png'
 
 function App() {
@@ -65,10 +63,7 @@ function App() {
 
   const renderArtists = () => {
       return artists.map(artist => (
-          <Card key={artist.id}>
-              {artist.images.length ? <img width={"100%"} src={artist.images[0].url} alt=""/> : <img src={spotifyLogo} alt=""/>}
-              {artist.name}
-          </Card>
+        <ArtistCard artist={artist} />
       ))
   }
 
@@ -88,18 +83,7 @@ function App() {
                 : <Button className="btn btn-success mb-3" onClick={logout}>Logout</Button>}
 
             {token 
-              ? <Form onSubmit={searchArtists} className="mb-4">
-                  <InputGroup >
-                    <FormControl
-                      placeholder="Start typing artist's name..."
-                      aria-label="Start typing artist's name..."
-                      onChange={e => setSearchKey(e.target.value)}
-                      />
-                    <Button variant="outline-success" type="submit">
-                      Search
-                    </Button>
-                </InputGroup>
-                  </Form>
+              ? <InputSearch onSubmit={searchArtists} onChange={setSearchKey}/>
                 : <h2>Please login</h2>
             }
           </div>

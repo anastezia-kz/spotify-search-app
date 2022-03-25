@@ -74,4 +74,5 @@ code {
   height:auto;
   display:block;
   z-index:999;
+  cursor: pointer;
 }
