@@ -72,7 +72,7 @@ function App() {
           <header className="App-header">
             <div className="d-flex justify-content-center align-items-center">
               <h1>Spotify Search</h1>
-              <img width={"40px"} height={"40px"}  src={spotifyLogo} alt=""/>
+              <img width="40px" height="40px" src={spotifyLogo} alt=""/>
             </div>
           </header>
           <div>

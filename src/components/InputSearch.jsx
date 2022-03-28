@@ -11,7 +11,7 @@ const InputSearch = ({onSubmit, onChange}) => (
                 aria-label="Start typing artist's name..."
                 onChange={e => onChange(e.target.value)}
                 />
-            <Button variant="outline-success" type="submit">
+            <Button variant="outline-success" type="submit" aria-label="Search button">
                 Search
             </Button>
         </InputGroup>
